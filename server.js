@@ -9,13 +9,14 @@ dotenv.config();
 const app = express();
 
 // ---------- CORS FIX ----------
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Your Next.js app
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://quizmgmapp.netlify.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 app.use(express.json());
 
